@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: ${{ secrets.AzureAppService_ContainerUsername_4767e0f97d5947cf9c237e5a88114eea }}/demo/azure-app-service-demo:${{ github.sha }}
+        tags: jstack.azurecr.io/demo/azure-app-service-demo:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'ase-infra-test'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_7d46c9cd5d364a0a8d7ed58294ff1199 }}
-        images: 'jstack.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_4767e0f97d5947cf9c237e5a88114eea }}/demo/azure-app-service-demo:${{ github.sha }}'
+        images: 'jstack.azurecr.io/demo/azure-app-service-demo:${{ github.sha }}'
